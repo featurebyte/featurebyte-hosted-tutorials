@@ -198,7 +198,7 @@ def register_grocery_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("GROCERYCUSTOMER").any():
         GroceryCustomer = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="GROCERY", table_name="GROCERYCUSTOMER"
+            database_name=TUTORIAL_DATABASE, schema_name="GROCERY", table_name="GROCERYCUSTOMER"
         ).create_scd_table(
             name="GROCERYCUSTOMER",
             surrogate_key_column="RowID",
@@ -214,7 +214,7 @@ def register_grocery_tables():
     if not catalog.list_tables().name.str.contains("GROCERYINVOICE").any():
         # register GroceryInvoice as an event data
         GroceryInvoice = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="GROCERY", table_name="GROCERYINVOICE"
+            database_name=TUTORIAL_DATABASE, schema_name="GROCERY", table_name="GROCERYINVOICE"
         ).create_event_table(
             name="GROCERYINVOICE",
             event_id_column="GroceryInvoiceGuid",
@@ -237,7 +237,7 @@ def register_grocery_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("INVOICEITEMS").any():
         InvoiceItems = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="GROCERY", table_name="INVOICEITEMS"
+            database_name=TUTORIAL_DATABASE, schema_name="GROCERY", table_name="INVOICEITEMS"
         ).create_item_table(
             name="INVOICEITEMS",
             event_id_column="GroceryInvoiceGuid",
@@ -251,7 +251,7 @@ def register_grocery_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("GROCERYPRODUCT").any():
         GroceryProduct = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="GROCERY", table_name="GROCERYPRODUCT"
+            database_name=TUTORIAL_DATABASE, schema_name="GROCERY", table_name="GROCERYPRODUCT"
         ).create_dimension_table(name="GROCERYPRODUCT", dimension_id_column="GroceryProductGuid")
     else:
         GroceryProduct = catalog.get_source_table("GROCERYPRODUCT")
@@ -271,7 +271,7 @@ def register_credit_card_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("BANKCUSTOMER").any():
         BankCustomer = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="CREDITCARD", table_name="BANKCUSTOMER"
+            database_name=TUTORIAL_DATABASE, schema_name="CREDITCARD", table_name="BANKCUSTOMER"
         ).create_scd_table(
             name="BANKCUSTOMER",
             surrogate_key_column="RowID",
@@ -287,7 +287,7 @@ def register_credit_card_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("STATEDETAILS").any():
         StateDetails = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="CREDITCARD", table_name="STATEDETAILS"
+            database_name=TUTORIAL_DATABASE, schema_name="CREDITCARD", table_name="STATEDETAILS"
         ).create_scd_table(
             name="STATEDETAILS",
             surrogate_key_column="StateGuid",
@@ -300,7 +300,7 @@ def register_credit_card_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("CREDITCARD").any():
         CreditCard = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="CREDITCARD", table_name="CREDITCARD"
+            database_name=TUTORIAL_DATABASE, schema_name="CREDITCARD", table_name="CREDITCARD"
         ).create_scd_table(
             name="CREDITCARD",
             surrogate_key_column="RowID",
@@ -315,7 +315,7 @@ def register_credit_card_tables():
     if not catalog.list_tables().name.str.contains("CARDTRANSACTIONS").any():
         # register GroceryInvoice as an event data
         CardTransactions = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="CREDITCARD", table_name="CARDTRANSACTIONS"
+            database_name=TUTORIAL_DATABASE, schema_name="CREDITCARD", table_name="CARDTRANSACTIONS"
         ).create_event_table(
             name="CARDTRANSACTIONS",
             event_id_column="CardTransactionID",
@@ -338,7 +338,7 @@ def register_credit_card_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("CARDFRAUDSTATUS").any():
         CardFraudStatus = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="CREDITCARD", table_name="CARDFRAUDSTATUS"
+            database_name=TUTORIAL_DATABASE, schema_name="CREDITCARD", table_name="CARDFRAUDSTATUS"
         ).create_scd_table(
             name="CARDFRAUDSTATUS",
             surrogate_key_column="RowID",
@@ -353,7 +353,7 @@ def register_credit_card_tables():
     # check whether the data is already registered
     if not catalog.list_tables().name.str.contains("CARDTRANSACTIONGROUPS").any():
         CardTransactionGroups = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE",
+            database_name=TUTORIAL_DATABASE,
             schema_name="CREDITCARD",
             table_name="CARDTRANSACTIONGROUPS",
         ).create_dimension_table(
@@ -384,7 +384,7 @@ def register_healthcare_tables():
     source_table_name = "PATIENT"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         Patient = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_scd_table(
             name=source_table_name,
             surrogate_key_column="RowID",
@@ -400,7 +400,7 @@ def register_healthcare_tables():
     source_table_name = "DIAGNOSIS"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         Diagnosis = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_scd_table(
             name=source_table_name,
             surrogate_key_column="RowID",
@@ -416,7 +416,7 @@ def register_healthcare_tables():
     source_table_name = "PATIENTSMOKINGSTATUS"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         PatientSmokingStatus = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_scd_table(
             name=source_table_name,
             # surrogate_key_column='RowID',
@@ -432,7 +432,7 @@ def register_healthcare_tables():
     source_table_name = "ALLERGY"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         Allergy = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_scd_table(
             name=source_table_name,
             # surrogate_key_column='AllergyGuid',
@@ -447,7 +447,7 @@ def register_healthcare_tables():
     source_table_name = "STATEDETAILS"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         StateDetails = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_scd_table(
             name=source_table_name,
             surrogate_key_column="StateGuid",
@@ -462,7 +462,7 @@ def register_healthcare_tables():
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         # register GroceryInvoice as an event data
         Visit = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_event_table(
             name=source_table_name,
             event_id_column="VisitGuid",
@@ -487,7 +487,7 @@ def register_healthcare_tables():
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         # register GroceryInvoice as an event data
         Prescription = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_event_table(
             name=source_table_name,
             event_id_column="PrescriptionGuid",
@@ -512,7 +512,7 @@ def register_healthcare_tables():
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         # register GroceryInvoice as an event data
         LabResult = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_event_table(
             name=source_table_name,
             event_id_column="LabResultGuid",
@@ -536,7 +536,7 @@ def register_healthcare_tables():
     source_table_name = "LABOBSERVATION"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         LabObservation = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_item_table(
             name=source_table_name,
             event_id_column="LabResultGuid",
@@ -550,7 +550,7 @@ def register_healthcare_tables():
     source_table_name = "ICD9HIERARCHY"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         ICD9Hierarchy = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_dimension_table(name=source_table_name, dimension_id_column="ICD9Code")
     else:
         ICD9Hierarchy = catalog.get_source_table(source_table_name)
@@ -559,7 +559,7 @@ def register_healthcare_tables():
     source_table_name = "SPECIALTYGROUP"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         SpecialtyGroup = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_dimension_table(name=source_table_name, dimension_id_column="PhysicianSpecialty")
     else:
         SpecialtyGroup = catalog.get_source_table(source_table_name)
@@ -568,7 +568,7 @@ def register_healthcare_tables():
     source_table_name = "MEDICALPRODUCT"
     if not catalog.list_tables().name.str.contains(source_table_name).any():
         MedicalProduct = ds.get_source_table(
-            database_name="TUTORIAL_DATABASE", schema_name="HEALTHCARE", table_name=source_table_name
+            database_name=TUTORIAL_DATABASE, schema_name="HEALTHCARE", table_name=source_table_name
         ).create_dimension_table(name=source_table_name, dimension_id_column="NdcCode")
     else:
         MedicalProduct = catalog.get_source_table(source_table_name)
