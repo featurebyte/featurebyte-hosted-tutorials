@@ -9,4 +9,5 @@ tasks:
     sources:
       - tutorials/notebooks/**/*
     cmds:
+      - git clean -fdx tutorials/notebooks
       - cd tutorials/ && zip -9 -r notebooks.zip ./notebooks
