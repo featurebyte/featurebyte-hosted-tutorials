@@ -16,7 +16,7 @@ The hosted tutorial notebooks are designed to work with Google's Colaboratory ho
 1. Select your preferred tutorial from the list below.
 1. Run the first paragraph to install `featurebyte` and the supporting library for the tutorials.
 1. Click `Run anyway` on the pop up after executing the first paragraph.
-1. In the second parapgraph replace the `<api_token>` placeholder with the access token from the welcome email.
+1. In the second paragraph replace the `<api_token>` placeholder with the access token from the welcome email.
 
 ## Get Started Using A Local Notebook
 
@@ -26,4 +26,4 @@ The hosted notebook tutorials are also compatible with using a local notebook en
 1. Unzip the archive into your preferred local working directory.
 1. Load your preferred tutorial.
 1. Run the first paragraph to install `featurebyte` and the supporting library for the tutorials.
-1. In the second parapgraph replace the `<api_token>` placeholder with the access token from the welcome email.
+1. In the second paragraph replace the `<api_token>` placeholder with the access token from the welcome email.
