@@ -4,7 +4,7 @@ FeatureByte has created a hosted environment for the back-end services required 
 
 ## Get Started By Signing Up for an Access Token
 
-Enter your name and email at our [sign up page](https://tutorials.featurebyte.com/tutorial/sign-up) and once you have verified tour email, follow the directions below to get started.
+Enter your name and email at our [sign up page](https://tutorials.featurebyte.com/tutorial/sign-up) and once you have verified your email, follow the directions below to get started.
 
 ## Get Started Using Google Colaboratory
 
