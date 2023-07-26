@@ -22,7 +22,7 @@ The hosted tutorial notebooks are designed to work with Google's Colaboratory ho
 
 The hosted notebook tutorials are also compatible with using a local notebook environment like Jupyter Lab.
 
-1. Download the notebook [archive]().
+1. Download the notebook [archive](https://github.com/featurebyte/featurebyte-hosted-tutorials/raw/main/tutorials/notebooks.zip).
 1. Unzip the archive into your preferred local working directory.
 1. Load your preferred tutorial.
 1. Run the first paragraph to install `featurebyte` and the supporting library for the tutorials.
